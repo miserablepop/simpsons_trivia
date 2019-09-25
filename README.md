@@ -1,4 +1,4 @@
-# simpsons_trivia
+# Simpsons Trivia Game
 
 ## How to Play
 
