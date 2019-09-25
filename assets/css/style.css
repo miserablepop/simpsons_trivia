@@ -1,0 +1,47 @@
+/* Setting the background */
+
+body {
+    background-image: url('../images/simpsons_bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #5DBCD2;
+}
+
+#gameBoard{
+    height: 800px;
+    width: 100%;
+    background-color: #FFD90F;
+}
+
+#gameTitle{
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    font-size: 60px;
+    padding-top: 50px;
+}
+
+#startBtn{
+    font-family: 'simpsonfontregular';
+    margin-top: 400px;
+
+}
+
+.top{
+    height: 100px;
+}
+
+.footer{
+    height: 100px;
+}
+
+
+
+@font-face {
+    font-family: 'simpsonfontregular';
+    src: url('../font/simpsonfont_demo-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../font/simpsonfont_demo-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../font/simpsonfont_demo-webfont.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: normal;
+}
