@@ -27,6 +27,27 @@ body {
 
 }
 
+#timer{
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    padding-top: 125px;
+    font-size: 24px;
+}
+
+#question{
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    padding-top: 25px;
+    font-size: 24px;
+}
+
+#choices{
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    padding-top: 25px;
+    font-size: 30px;
+}
+
 .top{
     height: 100px;
 }
