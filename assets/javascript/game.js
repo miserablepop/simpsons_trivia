@@ -6,7 +6,7 @@ $(document).ready(function(){
     // Defining the questions, choices, and answers
 
     var questions = ['The Simpsons live on the following street...', 'Homer Simpson is a...', 'Which of the following characters is a non-smoker ?'
-    ,'Which of the following names did Bart not use in a prank call to Moe ?', "What word is missing in the following quote _______, is there anything they can't do",
+    ,'Which of the following names did Bart not use in a prank call to Moe ?', "What word is missing in the following quote? _______, is there anything they can't do",
     'Who shot Mr. Burns?', 'How much money did Marge lose on Jeporady?', 'Name of the cinema in Springfield', "What was Maggie's first word?", 
     'What was the secret ingredient in a Flaming Moe/Homer ?'];
     var firstChoice = ['Woodview Terrace', 'Telephone Repair Man', 'Krusty', 'Ivana Tinkle', 'Donuts', 'Bart', '$6200', 'Googolplex', 'Daddy',
@@ -195,7 +195,6 @@ $(document).ready(function(){
                 stopTime();
                 $("#answer-holder").show();
                 $("#answer-holder").html("Time is up! The answer is: " + answer[count]);
-                // // displayImage();
                 unanswered++;
                 count++;
                 endGame();
