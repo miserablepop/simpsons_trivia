@@ -26,6 +26,7 @@ $(document).ready(function(){
     var incorrect = 0;
     var unanswered = 0;
     
+    // Checking to see if selection is made
 
     var isSelected = false;
 
@@ -68,6 +69,7 @@ $(document).ready(function(){
         $('#correct-result').hide();
         $('#incorrect-result').hide();
         $('#unanswered-result').hide();
+        $('#restart-result').hide();
     }
 
     // Show the final results
@@ -80,6 +82,8 @@ $(document).ready(function(){
         $('#incorrect-result').html('You got ' + incorrect + ' questions wrong');
         $('#unanswered-result').show();
         $('#unanswered-result').html('You did not answer ' + unanswered + ' questions');
+        $('#restart-result').show();
+        $('#restart-result').html('Select the start button below to restart the game.');
     }
 
 
@@ -91,7 +95,6 @@ $(document).ready(function(){
 
         $('#timer-holder').show();
         $("#answer-holder").hide();
-        $("#image-holder").hide();
 
         showGameContainers();
         $('#question-holder').html(questions[count]);
@@ -179,8 +182,7 @@ $(document).ready(function(){
         endGame();
 
     }
-
-    // Display image for correct 
+ 
 
     // Display the time remaining 
 
