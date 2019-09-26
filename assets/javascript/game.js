@@ -5,12 +5,20 @@ $(document).ready(function(){
 
     // Defining the questions, choices, and answers
 
-    var questions = ['The Simpsons live on the following street...'];
-    var firstChoice = ['Woodview Terrace'];
-    var secondChoice = ['Pine Tree Terrace'];
-    var thirdChoice = ['State Street'];
-    var fourthChoice = ['Evergreen Terrace'];
-    var answer = ['Evergreen Terrace'];
+    var questions = ['The Simpsons live on the following street...', 'Homer Simpson is a...', 'Which of the following characters is a non-smoker ?'
+    ,'Which of the following names did Bart not use in a prank call to Moe ?', "What word is missing in the following quote _______, is there anything they can't do",
+    'Who shot Mr. Burns?', 'How much money did Marge lose on Jeporady?', 'Name of the cinema in Springfield', "What was Maggie's first word?", 
+    'What was the secret ingredient in a Flaming Moe/Homer ?'];
+    var firstChoice = ['Woodview Terrace', 'Telephone Repair Man', 'Krusty', 'Ivana Tinkle', 'Donuts', 'Bart', '$6200', 'Googolplex', 'Daddy',
+                        'Bleach'];
+    var secondChoice = ['Pine Tree Terrace', 'IRS Collection Agent','Nelson', 'Bea O Problem', 'Kids', 'Homer', '$4200', 'Monties Movies', 'Homer',
+                        'Cough Syrup'];
+    var thirdChoice = ['State Street', 'Nuclear Power Plant Safety Inspector', 'Grandpa Simpson', 'Amanda Huggenkiss', 'Computers', 'Maggie', 
+                        '$5200', 'Mega Movies', 'Momma', 'Denture Cleaner'];
+    var fourthChoice = ['Evergreen Terrace', 'City Bus Driver','Mrs. Krabapple', 'Hugh Johnson', 'Women', 'Lisa', '$3200', 
+                        'Springfield Screen', "D'oh", 'Shampoo'];
+    var answer = ['Evergreen Terrace', 'Nuclear Power Plant Safety Inspector','Grandpa Simpson', 'Hugh Johnson', 'Donuts',
+                    'Maggie', '$5200', 'Googolplex', 'Daddy', 'Cough Syrup'];
     
     // Defining the counters for the end game
 
@@ -26,7 +34,7 @@ $(document).ready(function(){
 
     var count = 0;
     var timer;
-    var time = 30;
+    var time = 31;
     
 
     // FUNCTIONS
@@ -55,9 +63,7 @@ $(document).ready(function(){
     // Hide the final results 
 
     function hideResults() {
-        $("#correct-holder").hide();
-        $("#incorrect-holder").hide();
-        $("#unanswered-holder").hide();
+        $("#answer-holder").hide();
         $("#restart-holder").hide();
     }
 
@@ -67,7 +73,12 @@ $(document).ready(function(){
     function displayQuestions(){
 
         hideResults();
+
         // $('#timer').show();
+        $("#answer-holder").hide();
+        $("#image-holder").hide();
+
+        showGameContainers();
         $('#question-holder').html(questions[count]);
         $("#choice-1").html(firstChoice[count]);
         $("#choice-2").html(secondChoice[count]);
@@ -107,41 +118,50 @@ $(document).ready(function(){
 
     // Listening for the answer selected
 
-    $('#choice-1').on('click', answerSelected)
-    $('#choice-2').on('click', answerSelected)
-    $('#choice-3').on('click', answerSelected)
-    $('#choice-4').on('click', answerSelected)
+    $('#choice-1').on('click', answerSelected);
+    $('#choice-2').on('click', answerSelected);
+    $('#choice-3').on('click', answerSelected);
+    $('#choice-4').on('click', answerSelected);
 
 
     // Checking the user selected answer
 
     function answerSelected() {
 
-        hideResults();  
+        hideGameContainers();  
+
+        console.log($(this).text());
 
         if ($(this).text() === answer[count]){
 
-            hideGameContainers();
             stopTime();
             isSelected = true;
             
-            $('#answer').show();
-            $('#answer-holder').html("Correct!")
+            console.log (isSelected);
+
+            $('#answer-holder').show();
+            $('#answer-holder').html('Correct! The answer is... ' + answer[count]);
 
             correct++;
             count++;
+
         } else {
 
             hideGameContainers();
             stopTime();
             isSelected = true;
 
-            $('#answer').show();
-            $('#answer-holder').html('Incorrect! Correct answer was: ' + answer[count]);
+            console.log (isSelected);
+
+            $('#answer-holder').show();
+            $('#answer-holder').html('Incorrect! Correct answer is... ' + answer[count]);
 
             incorrect++;
             count++;
+
         }
+
+        endGame();
 
     }
 
@@ -161,7 +181,7 @@ $(document).ready(function(){
                 // // displayImage();
                 unanswered++;
                 count++;
-                // checkGameEnd();
+                endGame();
             }
     }
 
@@ -176,6 +196,29 @@ $(document).ready(function(){
 
     function stopTime() {
         clearInterval(timer);
+
+        resetTimer();
+        console.log(time);
+
+        if (count < questions.length - 1){
+            setTimeout(startTime, 3000);
+            setTimeout(displayQuestions, 3000);
+        }
+    }
+
+    
+
+    function resetTimer(){
+
+        time = 31;
+    }
+    
+    // End game
+
+    function endGame() {
+        if (count === questions.length){
+            $('#time-holder').hide();
+        }
     }
 
     // Start the game 
