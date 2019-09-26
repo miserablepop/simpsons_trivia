@@ -41,6 +41,13 @@ body {
     font-size: 24px;
 }
 
+#answer{
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    padding-top: 25px;
+    font-size: 24px;
+}
+
 #choices{
     text-align: center;
     font-family: 'simpsonfontregular';
@@ -49,13 +56,12 @@ body {
 }
 
 .top{
-    height: 100px;
+    height: 75px;
 }
 
 .footer{
-    height: 100px;
+    height: 75px;
 }
-
 
 
 @font-face {
