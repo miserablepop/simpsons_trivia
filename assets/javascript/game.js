@@ -65,6 +65,9 @@ $(document).ready(function(){
     function hideResults() {
         $("#answer-holder").hide();
         $("#restart-holder").hide();
+        $('#correct-result').hide();
+        $('#incorrect-result').hide();
+        $('#unanswered-result').hide();
     }
 
     // Show the final results
@@ -86,7 +89,7 @@ $(document).ready(function(){
 
         hideResults();
 
-        // $('#timer').show();
+        $('#timer-holder').show();
         $("#answer-holder").hide();
         $("#image-holder").hide();
 
