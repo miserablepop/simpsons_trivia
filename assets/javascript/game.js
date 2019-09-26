@@ -67,6 +67,18 @@ $(document).ready(function(){
         $("#restart-holder").hide();
     }
 
+    // Show the final results
+
+    function showResults(){
+        
+        $('#correct-result').show();
+        $('#correct-result').html('You got ' + correct + ' questions right');
+        $('#incorrect-result').show();
+        $('#incorrect-result').html('You got ' + incorrect + ' questions wrong');
+        $('#unanswered-result').show();
+        $('#unanswered-result').html('You did not answer ' + unanswered + ' questions');
+    }
+
 
     // Display the question and choices
 
@@ -160,7 +172,7 @@ $(document).ready(function(){
             count++;
 
         }
-
+        console.log(count);
         endGame();
 
     }
@@ -176,13 +188,14 @@ $(document).ready(function(){
             if (time <= 0) {
                 hideGameContainers();
                 stopTime();
-                $("#answer").show();
-                $("#answer").html("Time is up! The answer is: " + answer[count]);
+                $("#answer-holder").show();
+                $("#answer-holder").html("Time is up! The answer is: " + answer[count]);
                 // // displayImage();
                 unanswered++;
                 count++;
                 endGame();
             }
+        
     }
 
     // Start the countdown for the time remaining
@@ -217,7 +230,10 @@ $(document).ready(function(){
 
     function endGame() {
         if (count === questions.length){
-            $('#time-holder').hide();
+            $('#timer-holder').hide();
+            $('#answer-holder').hide();
+            showResults();
+            count = 0;
         }
     }
 

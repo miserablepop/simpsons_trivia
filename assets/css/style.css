@@ -55,6 +55,13 @@ body {
     font-size: 30px;
 }
 
+#results{
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    padding-top: 25px;
+    font-size: 30px;
+}
+
 .top{
     height: 75px;
 }
