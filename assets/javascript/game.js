@@ -220,12 +220,21 @@ $(document).ready(function(){
     }
 
     
+    // Resetting the time remaining
 
     function resetTimer(){
 
         time = 31;
     }
     
+    // Resetting the counter variables
+
+    function resetCounters(){
+        correct = 0;
+        incorrect = 0;
+        unanswered = 0;
+    }
+
     // End game
 
     function endGame() {
@@ -234,6 +243,11 @@ $(document).ready(function(){
             $('#answer-holder').hide();
             showResults();
             count = 0;
+            $('#startBtn').show();
+            $('#startBtn').on('click', function(){
+                resetCounters();
+                startGame();
+            });
         }
     }
 
